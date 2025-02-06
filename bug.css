@@ -1,0 +1,21 @@
+The following CSS code snippet demonstrates an uncommon issue related to specificity and inheritance:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; /* This should override both the div and p styles */
+}
+
+.special-class p {
+  color: purple; /* This should override the div, p, and div p styles.  However, due to inheritance and specificity, it might not behave as expected */
+}
+```
+
+In this example, the `.special-class p` selector inherits properties from both `div p` and `p`. Specificity rules will determine the outcome. Understanding how the browser resolves conflicting styles in this situation can be difficult.

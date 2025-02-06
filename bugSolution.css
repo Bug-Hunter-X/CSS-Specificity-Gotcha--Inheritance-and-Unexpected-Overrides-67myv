@@ -1,0 +1,43 @@
+The solution involves carefully managing specificity to ensure the desired styles are applied.  One approach is to increase the specificity of the `.special-class p` selector to ensure it overrides the other styles:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green; 
+}
+
+.special-class p {
+  color: purple !important; /* Using !important is generally discouraged but it works here for demonstration */
+}
+```
+
+Alternatively, you could restructure your CSS to avoid the conflict or use more explicit selectors.  For example:
+
+```css
+div {
+  color: blue;
+}
+
+p {
+  color: red;
+}
+
+div p {
+  color: green;
+}
+
+.special-class {
+  p {
+    color: purple; /* Using nested selector for better specificity */
+  }
+}
+```
+
+This solution uses a more specific selector to ensure that the desired style is applied without resorting to `!important`.
